@@ -15,7 +15,7 @@ public class UsersController(DataContext context) : ControllerBase
     public  async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
     {
         var users=await context.Users.ToListAsync();
-        return Ok(users);
+        return users;
     }
 
      [HttpGet("{id:int}")]
@@ -26,7 +26,7 @@ public class UsersController(DataContext context) : ControllerBase
         {
             return NotFound();
         }
-        return Ok(user);
+        return user;
     }
 
 }
